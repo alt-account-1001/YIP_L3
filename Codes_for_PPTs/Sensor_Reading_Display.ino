@@ -2,7 +2,6 @@
 #include <LiquidCrystal_I2C.h>
 
 const int sensorPin = A0;
-const String sensorType = "digital";
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
@@ -14,13 +13,8 @@ void setup() {
 
 void loop() {
     // Reading the value from the sensor
-    int sensorValue;
-    if (sensorType == "digital") {
-        sensorValue = digitalRead(sensorPin);
-    }
-    else {
-        sensorValue = analogRead(sensorPin);
-    }
+    int sensorValue = digitalRead(sensorPin);   // for digital sensor
+    int analogValue = analogRead(sensorPin);    // for analog sensor
     
     // Printing the value to the serial monitor
     Serial.print("Value = ");

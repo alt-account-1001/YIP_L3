@@ -1,8 +1,10 @@
 #include <AFMotor.h>
 
 // define the motors
-AF_DCMotor motor_left(1);
-AF_DCMotor motor_right(4);
+AF_DCMotor motor_left1(1);
+AF_DCMotor motor_left2(2);
+AF_DCMotor motor_right3(3);
+AF_DCMotor motor_right4(4);
 
 // define the channel pins
 const int channel_2 = A0;
@@ -14,8 +16,10 @@ void setup() {
   pinMode(channel_2, INPUT);
 
   // motor speed can vary from 0 to 255
-  motor_left.setSpeed(255);
-  motor_right.setSpeed(255);
+  motor_left1.setSpeed(255);
+  motor_left2.setSpeed(255);
+  motor_right1.setSpeed(255);
+  motor_right2.setSpeed(255);
 
   // initialize the serial port
   Serial.begin(9600);
@@ -34,33 +38,43 @@ void loop() {
   Serial.print("\n----------------");
 
   // release all motors
-  motor_left.run(RELEASE);
-  motor_right.run(RELEASE);
+  motor_left1.run(RELEASE);
+  motor_left2.run(RELEASE);
+  motor_right1.run(RELEASE);
+  motor_right2.run(RELEASE);
   delay(100);
 
   // move car based on the readings
   if(propulsion > 1700){
     // move forward
-    motor_left.run(FORWARD);
-    motor_right.run(FORWARD);
+    motor_left1.run(FORWARD);
+    motor_left2.run(FORWARD);
+    motor_right1.run(FORWARD);
+    motor_right2.run(FORWARD);
     Serial.println("FORWARD");
   }
   else if(propulsion < 1300){
     // move backward
-    motor_left.run(BACKWARD);
-    motor_right.run(BACKWARD);
+    motor_left1.run(BACKWARD);
+    motor_left2.run(BACKWARD);
+    motor_right1.run(BACKWARD);
+    motor_right2.run(BACKWARD);
     Serial.println("BACKWARD");
   }
   else if(steering > 1700){
     // turn right
-    motor_left.run(FORWARD);
-    motor_right.run(BACKWARD);
+    motor_left1.run(FORWARD);
+    motor_left2.run(FORWARD);
+    motor_right1.run(BACKWARD);
+    motor_right2.run(BACKWARD);
     Serial.println("RIGHT");
   }
   else if(steering < 1300){
     // turn left
-    motor_left.run(BACKWARD);
-    motor_right.run(FORWARD);
+    motor_left1.run(BACKWARD);
+    motor_left2.run(BACKWARD);
+    motor_right1.run(FORWARD);
+    motor_right2.run(FORWARD);
     Serial.println("LEFT");
   }
 

@@ -15,32 +15,32 @@ void setup() {
 
 void loop() {
   // make the car go forward
-  Serial.println("FORWARD");
   motor_left.run(FORWARD);
   motor_right.run(FORWARD);
+  Serial.println("FORWARD");
   delay(2000);
 
   // make the car turn left
-  Serial.println("LEFT");
   motor_left.run(BACKWARD);
   motor_right.run(FORWARD);
+  Serial.println("LEFT");
   delay(2000);
 
   // make the car go backward
-  Serial.println("BACKWARD");
   motor_left.run(BACKWARD);
   motor_right.run(BACKWARD);
+  Serial.println("BACKWARD");
   delay(2000);
 
   // make the car turn right
-  Serial.println("RIGHT");
   motor_left.run(FORWARD);
   motor_right.run(BACKWARD);
+  Serial.println("RIGHT");
   delay(2000);
 
   // make the car stop
-  Serial.println("STOP");
   motor_left.run(RELEASE);
   motor_right.run(RELEASE);
+  Serial.println("STOP");
   delay(2000);
 }

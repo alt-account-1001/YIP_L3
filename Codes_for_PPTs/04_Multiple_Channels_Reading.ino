@@ -21,27 +21,33 @@ void setup() {
 
 void loop() {
   // read the values
-  int value_1 = pulseIn(channel_1, HIGH); // right joystick left-right
+  int value_1 = pulseIn(channel_1, HIGH);
+  // right joystick left-right
   Serial.print("\nch1: ");
   Serial.print(value_1);
 
-  int value_2 = pulseIn(channel_2, HIGH); // right joystick up-down
+  int value_2 = pulseIn(channel_2, HIGH);
+  // right joystick up-down
   Serial.print("\tch2: ");
   Serial.print(value_2);
 
-  int value_3 = pulseIn(channel_3, HIGH); // left joystick up-down
+  int value_3 = pulseIn(channel_3, HIGH);
+  // left joystick up-down
   Serial.print("\tch3: ");
   Serial.print(value_3);
 
-  int value_4 = pulseIn(channel_4, HIGH); // left joystick left-right
+  int value_4 = pulseIn(channel_4, HIGH);
+  // left joystick left-right
   Serial.print("\tch4: ");
   Serial.print(value_4);
 
-  int value_5 = pulseIn(channel_5, HIGH); // right knob rotate
+  int value_5 = pulseIn(channel_5, HIGH);
+  // right knob rotate
   Serial.print("\tch5: ");
   Serial.print(value_5);
 
-  int value_6 = pulseIn(channel_6, HIGH); // left knob rotate
+  int value_6 = pulseIn(channel_6, HIGH);
+  // left knob rotate
   Serial.print("\tch6: ");
   Serial.print(value_6);
 
